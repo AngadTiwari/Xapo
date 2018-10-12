@@ -3,12 +3,20 @@ package com.angad.xapo.models
 import android.os.Parcel
 import android.os.Parcelable
 
+/**
+ * @author Angad Tiwari
+ * @Date 11 Oct 2018
+ * @comment data class to parcel data from list screen to detail screen
+ */
 data class AndroidTrendingRepo(
     val total_count: Int,
     val incomplete_results: Boolean,
     val items: List<Repo>
 )
 
+/**
+ * API Response model class
+ */
 data class Repo(
         val id: Int,
         val node_id: String,

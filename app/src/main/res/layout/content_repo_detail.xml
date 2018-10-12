@@ -14,6 +14,20 @@
         android:layout_marginTop="36dp">
 
         <TextView
+            android:id="@+id/txt_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:autoLink="web"
+            android:linksClickable="true"
+            android:textColorLink="@color/primary_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description" />
+
+        <TextView
             android:id="@+id/txt_repo_created_on"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.angad.xapo.AppController
 import com.angad.xapo.R
 import com.angad.xapo.adapters.RepoListAdapter
+import com.angad.xapo.helpers.AppUtils
 import com.angad.xapo.models.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_repo_detail.*
@@ -20,7 +21,11 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-
+/**
+ * @author Angad Tiwari
+ * @Date 11 Oct 2018
+ * @comment Repo list Activity for github trending android repos
+ */
 class MainActivity : AppCompatActivity() {
 
     private var repos_adapter: RepoListAdapter? = null
@@ -34,12 +39,11 @@ class MainActivity : AppCompatActivity() {
         fetchRepos()
     }
 
+    /**
+     * fetch the trending github android repos via github v3 api
+     */
     private fun fetchRepos() {
-        val q = "topic:android+language:java+language:kotlin"
-        val sort = "stars"
-        val order = "desc"
-
-        AppController.service?.getAndroidTrendingRepos(q, sort, order)?.enqueue(object: Callback<AndroidTrendingRepo> {
+        AppController.service?.getAndroidTrendingRepos(AppUtils.query, AppUtils.sort, AppUtils.order)?.enqueue(object: Callback<AndroidTrendingRepo> {
             override fun onResponse(call: Call<AndroidTrendingRepo>?, response: Response<AndroidTrendingRepo>?) {
                 when(response?.code()) {
                     200 -> {
@@ -64,6 +68,9 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /**
+     * initializing the views
+     */
     private fun initView() {
         recycler_repos.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
@@ -75,11 +82,11 @@ class MainActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-        EventBus.getDefault().register(this)
+        EventBus.getDefault().register(this) //register to eventbus
     }
 
     public override fun onStop() {
         super.onStop()
-        EventBus.getDefault().unregister(this)
+        EventBus.getDefault().unregister(this) //unregister to eventbus
     }
 }

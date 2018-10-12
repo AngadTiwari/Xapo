@@ -9,5 +9,4 @@
     <string name="label_repo_link">Repo Link</string>
     <string name="title_activity_repo_detail">RepoDetailActivity</string>
 
-    <string name="action_settings">Settings</string>
 </resources>

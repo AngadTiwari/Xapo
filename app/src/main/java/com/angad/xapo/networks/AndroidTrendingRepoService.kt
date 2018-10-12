@@ -5,6 +5,11 @@ import retrofit2.http.GET
 import retrofit2.Call
 import retrofit2.http.Query
 
+/**
+ * @author Angad Tiwari
+ * @Date 11 Oct 2018
+ * @comment API interface to call retrofit
+ */
 interface AndroidTrendingRepoService {
 
     @GET("search/repositories")
