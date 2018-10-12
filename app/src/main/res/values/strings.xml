@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RepoInTrend</string>
+    <string name="title">Android Trending Repository</string>
+    <string name="subtile">Top 30</string>
+    <string name="label_created_on">Created on: %s</string>
+    <string name="label_updated_on">Updated on: %s</string>
+    <string name="label_stars">Stars: %d</string>
+    <string name="label_forks">Forks: %d</string>
+    <string name="label_repo_link">Repo Link</string>
+    <string name="title_activity_repo_detail">RepoDetailActivity</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
